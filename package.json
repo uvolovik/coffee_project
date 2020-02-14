@@ -3,16 +3,27 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.26",
+    "@fortawesome/free-solid-svg-icons": "^5.12.0",
+    "@fortawesome/react-fontawesome": "^0.1.8",
+    "@material-ui/core": "^4.8.3",
+    "@material-ui/icons": "^4.5.1",
     "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.4.0",
-    "@testing-library/user-event": "^7.2.1",
-    "@types/jest": "^24.9.1",
-    "@types/node": "^12.12.26",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/jest": "^24.9.0",
+    "@types/node": "^13.1.8",
     "@types/react": "^16.9.19",
     "@types/react-dom": "^16.9.5",
+    "font-awesome": "^4.7.0",
+    "husky": "^4.2.1",
+    "lint-staged": "^10.0.7",
+    "node-sass": "^4.13.1",
+    "prettier": "^1.19.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-scripts": "3.3.1",
+    "react-scripts": "3.3.0",
+    "typeface-roboto": "0.0.75",
     "typescript": "^3.7.5"
   },
   "scripts": {
@@ -23,6 +34,9 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "prettier": {
+    "tabWidth": 2
   },
   "browserslist": {
     "production": [
@@ -35,5 +49,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.7.0"
   }
 }
