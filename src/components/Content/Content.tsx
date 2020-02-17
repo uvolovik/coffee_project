@@ -11,7 +11,6 @@ const useStyles = makeStyles((theme: Theme) =>
     paper: {
       padding: theme.spacing(2),
       color: theme.palette.text.secondary,
-      marginBottom: "12px"
     }
   })
 );
