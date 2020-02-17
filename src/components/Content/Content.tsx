@@ -3,6 +3,7 @@ import Avatar from "@material-ui/core/Avatar";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
+import Calendar from "../Calendar/Calendar";
 
 import "./Content.scss";
 
@@ -48,7 +49,9 @@ const Content = () => {
             </div>
           </div>
         </Paper>
-        <Paper className={`calendar ${classes.paper}`}>CALENDAR</Paper>
+        <Paper className={`calendar ${classes.paper}`}>
+          <Calendar />
+        </Paper>
       </Grid>
       <Grid item xs={12} sm={4}>
         <Paper className={classes.paper}>

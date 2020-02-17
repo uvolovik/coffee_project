@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@devexpress/dx-react-core": "^2.4.0",
+    "@devexpress/dx-react-scheduler": "^2.4.0",
+    "@devexpress/dx-react-scheduler-material-ui": "^2.4.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
     "@fortawesome/free-solid-svg-icons": "^5.12.0",
     "@fortawesome/react-fontawesome": "^0.1.8",
