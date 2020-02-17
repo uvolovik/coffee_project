@@ -2,7 +2,7 @@ import React from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { makeStyles } from "@material-ui/core/styles";
 import "./App.scss";
-import Header from "./components/framework/Header";
+import Header from "./components/Header/Header";
 
 import Content from './components/Content/Content'
 

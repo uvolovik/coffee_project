@@ -6,6 +6,8 @@ import AppBar from "@material-ui/core/AppBar";
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
+import './Header.scss'
+
 const useStyles = makeStyles((theme: { zIndex: { drawer: number } }) => ({
   appBar: {
     zIndex: theme.zIndex.drawer + 1
@@ -24,7 +26,7 @@ export default function Header() {
   return (
     <AppBar position="fixed" className={classes.appBar}>
       <Toolbar>
-        <div style={{width: "100%", display: "flex", justifyContent: "space-between" }}>
+        <div className="header__toolbar">
           <Typography variant="h6" noWrap>
             ☕ Coffee
           </Typography>
