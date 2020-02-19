@@ -6,7 +6,8 @@ import AppBar from "@material-ui/core/AppBar";
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
-import './Header.scss'
+import "./Header.scss";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme: { zIndex: { drawer: number } }) => ({
   appBar: {
@@ -31,9 +32,15 @@ export default function Header() {
             ☕ Coffee
           </Typography>
 
-          <Button variant="outlined" color="default" startIcon={<ExitToApp />}>
-            LOGOUT
-          </Button>
+          <Link to="/login" className="logout-button">
+            <Button
+              variant="outlined"
+              color="default"
+              startIcon={<ExitToApp />}
+            >
+              LOGOUT
+            </Button>
+          </Link>
         </div>
       </Toolbar>
     </AppBar>
