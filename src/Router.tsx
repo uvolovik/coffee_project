@@ -2,6 +2,8 @@ import React from "react";
 
 import Home from "./App";
 import SignIn from "./SignIn/Sign";
+import Profile from "./components/Profile/Profile";
+
 import { Router, Route } from "react-router-dom";
 import { createBrowserHistory } from "history";
 
@@ -21,14 +23,12 @@ const lightTheme = createMuiTheme({
 
 const customHistory = createBrowserHistory();
 
-// import Profile from './Profile/Profile';
-
 export default (
   <Router history={customHistory}>
     <ThemeProvider theme={lightTheme}>
       <Route exact path="/" component={Home} />
       <Route path="/login" component={SignIn} />
-      {/* <Route path="/profile" component={Profile} /> */}
+      <Route path="/profile" component={Profile} />
     </ThemeProvider>
   </Router>
 );
