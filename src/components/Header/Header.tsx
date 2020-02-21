@@ -1,42 +1,27 @@
-﻿import Toolbar from "@material-ui/core/Toolbar";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
-import ExitToApp from "@material-ui/icons/ExitToApp";
-import AppBar from "@material-ui/core/AppBar";
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-
-import "./Header.scss";
+﻿import React from "react";
 import { Link } from "react-router-dom";
 
-const useStyles = makeStyles((theme: { zIndex: { drawer: number } }) => ({
-  appBar: {
-    zIndex: theme.zIndex.drawer + 1
-  },
-  pinnedIcon: {
-    transform: "rotate(-45deg)",
+import ExitToApp from "@material-ui/icons/ExitToApp";
+import { Toolbar, Button, Typography, AppBar } from "@material-ui/core";
 
-    "&:hover, &:focus": {
-      transform: "rotate(0deg)"
-    }
-  }
-}));
+import useStyles from "./Header_scss";
 
 export default function Header() {
   const classes = useStyles();
   return (
     <AppBar position="fixed" className={classes.appBar}>
       <Toolbar>
-        <div className="header__toolbar">
+        <div className={classes.headerToolbar}>
           <Typography variant="h6" noWrap>
-            ☕ Coffee
+            <span role="img" aria-label="image coffee">☕</span> Coffee
           </Typography>
 
-          <Link to="/login" className="logout-button">
+          <Link to="/login" className={classes.logoutButton}>
             <Button
               variant="outlined"
               color="default"
               startIcon={<ExitToApp />}
+              aria-label="Logout"
             >
               LOGOUT
             </Button>

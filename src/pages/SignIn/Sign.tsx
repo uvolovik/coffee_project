@@ -1,39 +1,19 @@
 import React from "react";
-import Avatar from "@material-ui/core/Avatar";
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
-import Link from "@material-ui/core/Link";
-import Grid from "@material-ui/core/Grid";
-import FreeBreakfast from "@material-ui/icons/FreeBreakfast";
-import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
+import {
+  Avatar,
+  Button,
+  Input,
+  FormControlLabel,
+  Checkbox,
+  Typography,
+  Container,
+  FormControl,
+  InputLabel
+} from "@material-ui/core";
 
-const useStyles = makeStyles(theme => ({
-  paper: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    margin: "auto"
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main
-  },
-  form: {
-    width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(1)
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2)
-  },
-  container: {
-    height: "100vh",
-    display: "flex"
-  }
-}));
+import FreeBreakfast from "@material-ui/icons/FreeBreakfast";
+
+import useStyles from "./Sign_scss";
 
 export default function SignIn() {
   const classes = useStyles();
@@ -48,28 +28,14 @@ export default function SignIn() {
           Sign in
         </Typography>
         <form className={classes.form} noValidate>
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
-            autoFocus
-          />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-          />
+          <FormControl className={classes.input}>
+            <InputLabel htmlFor="component-email">Email</InputLabel>
+            <Input id="component-email" name="email" type="email" />
+          </FormControl>
+          <FormControl className={classes.input}>
+            <InputLabel htmlFor="component-password">Password</InputLabel>
+            <Input id="component-password" name="password" type="password" />
+          </FormControl>
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
@@ -80,21 +46,10 @@ export default function SignIn() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            aria-label="Sign In"
           >
             Sign In
           </Button>
-          <Grid container>
-            <Grid item xs>
-              <Link href="#" variant="body2">
-                Forgot password?
-              </Link>
-            </Grid>
-            <Grid item>
-              <Link href="#" variant="body2">
-                {"Don't have an account? Sign Up"}
-              </Link>
-            </Grid>
-          </Grid>
         </form>
       </div>
     </Container>

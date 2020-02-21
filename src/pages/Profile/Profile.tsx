@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import Grid from "@material-ui/core/Grid";
-import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import Header from "../../components/Header/Header";
-import CssBaseline from "@material-ui/core/CssBaseline";
 
 import {
   Paper,
@@ -14,47 +12,11 @@ import {
   RadioGroup,
   Radio,
   TextField,
-  FormControlLabel
+  FormControlLabel,
+  Button
 } from "@material-ui/core";
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    paper: {
-      padding: theme.spacing(2),
-      color: theme.palette.text.secondary
-    },
-    root: {
-      display: "flex"
-    },
-    content: {
-      flexGrow: 1,
-      padding: theme.spacing(3)
-    },
-    toolbar: {
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "flex-start",
-      padding: theme.spacing(0, 0.5),
-      ...theme.mixins.toolbar
-    },
-    form: {
-      display: "flex",
-      flexDirection: "column",
-      padding: theme.spacing(2)
-    },
-
-    formControl: {
-      margin: "10px 0"
-    },
-    formRadio: {
-      flexDirection: "row"
-    },
-    time: {
-      width: "250px",
-      marginRight: "20px"
-    }
-  })
-);
+import useStyles from "./Profile_scss";
 
 const Profile = () => {
   const classes = useStyles();
@@ -64,17 +26,24 @@ const Profile = () => {
     setValues({ ...values, [name]: value });
   };
 
-  interface IForm {
-      name: string,
-      email: string,
-      skype: string,
-      location: string,
-      milk : boolean,
-      start: string,
-      end: string,
+  interface Form {
+    name: string;
+    email: string;
+    skype: string;
+    location: string;
+    milk: boolean;
+    start: string;
+    end: string;
+    [index: string]: string | boolean;
   }
 
-  const [values, setValues] = useState<IForm>({
+  interface Input {
+    id: string;
+    name: string;
+    label: string;
+  }
+
+  const [values, setValues] = useState<Form>({
     name: "",
     email: "",
     skype: "",
@@ -83,57 +52,61 @@ const Profile = () => {
     start: "09:00",
     end: "18:00"
   });
+
+  const INPUTS = [
+    {
+      id: "profile-name",
+      name: "name",
+      label: "Full Name"
+    },
+    {
+      id: "profile-email",
+      name: "email",
+      label: "Email"
+    },
+    {
+      id: "profile-skype",
+      name: "skype",
+      label: "Skype"
+    },
+    {
+      id: "profile-location",
+      name: "location",
+      label: "Location"
+    }
+  ];
+
+  const TextFields = [
+    {
+      label: "Start of work day",
+      name: "start"
+    },
+    {
+      label: "End of work day",
+      name: "end"
+    }
+  ];
+
   return (
     <div className={classes.root}>
       <Header />
       <main className={classes.content}>
-        color: '#fff',
-        <div className={classes.toolbar} />
+        <div className={classes.toolbarPlaceholder} />
         <Grid container justify="center">
           <Grid item xs={12} sm={8}>
             <Paper className={classes.paper}>
               <form className={classes.form} noValidate autoComplete="off">
-                <FormControl className={classes.formControl}>
-                  <InputLabel htmlFor="component-simple">Full Name</InputLabel>
-                  <Input
-                    id="component-simple"
-                    value={values.name}
-                    name="name"
-                    onChange={handleInputChange}
-                  />
-                  {/* <FormHelperText id="component-error-text">Error</FormHelperText> */}
-                </FormControl>
-                <FormControl className={classes.formControl}>
-                  <InputLabel htmlFor="component-simple">Email</InputLabel>
-                  <Input
-                    type="email"
-                    id="component-simple"
-                    value={values.email}
-                    name="email"
-                    onChange={handleInputChange}
-                  />
-                  {/* <FormHelperText id="component-error-text">Error</FormHelperText> */}
-                </FormControl>
-                <FormControl className={classes.formControl}>
-                  <InputLabel htmlFor="component-simple">Skype</InputLabel>
-                  <Input
-                    id="component-simple"
-                    value={values.skype}
-                    name="skype"
-                    onChange={handleInputChange}
-                  />
-                  {/* <FormHelperText id="component-error-text">Error</FormHelperText> */}
-                </FormControl>
-                <FormControl className={classes.formControl}>
-                  <InputLabel htmlFor="component-simple">Location</InputLabel>
-                  <Input
-                    id="component-simple"
-                    value={values.location}
-                    name="location"
-                    onChange={handleInputChange}
-                  />
-                  {/* <FormHelperText id="component-error-text">Error</FormHelperText> */}
-                </FormControl>
+                {INPUTS.map((item: Input) => (
+                  <FormControl className={classes.formControl}>
+                    <InputLabel htmlFor={item.id}>{item.label}</InputLabel>
+                    <Input
+                      id={item.id}
+                      value={values[item.name]}
+                      name={item.name}
+                      onChange={handleInputChange}
+                    />
+                  </FormControl>
+                ))}
                 <FormControl className={classes.formControl}>
                   <FormLabel component="legend">
                     Do you use milk with coffee?
@@ -157,43 +130,34 @@ const Profile = () => {
                   </RadioGroup>
                 </FormControl>
                 <div>
-                  <FormControl className={classes.formControl}>
-                    <TextField
-                      className={classes.time}
-                      id="time"
-                      label="Start of work day"
-                      type="time"
-                      defaultValue="09:00"
-                      value={values.start}
-                      name="start"
-                      onChange={handleInputChange}
-                      InputLabelProps={{
-                        shrink: true
-                      }}
-                      inputProps={{
-                        step: 60 * 15
-                      }}
-                    />
-                  </FormControl>
-                  <FormControl className={classes.formControl}>
-                    <TextField
-                      className={classes.time}
-                      id="time"
-                      label="End of work day"
-                      type="time"
-                      defaultValue="18:00"
-                      name="end"
-                      value={values.end}
-                      InputLabelProps={{
-                        shrink: true
-                      }}
-                      inputProps={{
-                        step: 60 * 15
-                      }}
-                      onChange={handleInputChange}
-                    />
-                  </FormControl>
+                  {TextFields.map(item => (
+                    <FormControl className={classes.formControl}>
+                      <TextField
+                        className={classes.time}
+                        label={item.label}
+                        type="time"
+                        value={values[item.name]}
+                        name={item.name}
+                        onChange={handleInputChange}
+                        InputLabelProps={{
+                          shrink: true
+                        }}
+                        inputProps={{
+                          step: 60 * 15
+                        }}
+                      />
+                    </FormControl>
+                  ))}
                 </div>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  color="primary"
+                  className={classes.profileSubmitBtn}
+                  aria-label="Update Info"
+                >
+                  Update Info
+                </Button>
               </form>
             </Paper>
           </Grid>
