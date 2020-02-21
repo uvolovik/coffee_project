@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
-import Header from "../Header/Header";
+import Header from "../../components/Header/Header";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
 import {
@@ -85,7 +85,6 @@ const Profile = () => {
   });
   return (
     <div className={classes.root}>
-      <CssBaseline />
       <Header />
       <main className={classes.content}>
         color: '#fff',

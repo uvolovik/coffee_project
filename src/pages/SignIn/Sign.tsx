@@ -1,7 +1,6 @@
 import React from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
@@ -16,7 +15,8 @@ const useStyles = makeStyles(theme => ({
   paper: {
     display: "flex",
     flexDirection: "column",
-    alignItems: "center"
+    alignItems: "center",
+    margin: "auto"
   },
   avatar: {
     margin: theme.spacing(1),
@@ -30,11 +30,8 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(3, 0, 2)
   },
   container: {
-    position: "absolute",
-    top: "45%",
-    left: "50%",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)"
+    height: "100vh",
+    display: "flex"
   }
 }));
 
@@ -43,7 +40,6 @@ export default function SignIn() {
 
   return (
     <Container className={classes.container} component="main" maxWidth="xs">
-      <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
           <FreeBreakfast />
