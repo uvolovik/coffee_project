@@ -6,15 +6,15 @@
 
 #### Testing Locally
 
-> Provide any instructions on how to test this PR locally. For example:
+> Provide any instructions on how to check this PR locally. For example:
 
 - run `yarn start`
-- go to `<link>`
+- go to `https://project.com/componentPage`
 - additional instructions as necessary...
 
 #### Screenshots
 
-> Please provide screenshots if there is a UI-related change and/or any example GraphQL query/mutation.
+> Please attach screenshots to PR.
 
 #### Checklist
 
